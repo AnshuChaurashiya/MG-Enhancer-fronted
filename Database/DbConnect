@@ -1,0 +1,15 @@
+const mongoose = require("mongoose");
+
+const DBUrl = async () => {
+  try {
+    await mongoose.connect(process.env.DBCONNECT, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
+    console.log("✅ Connected to MongoDB");
+  } catch (error) {
+    console.error("❌ MongoDB connection error:", error.message);
+  }
+};
+
+module.exports = DBUrl;
