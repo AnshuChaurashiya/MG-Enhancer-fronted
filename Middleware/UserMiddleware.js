@@ -9,7 +9,7 @@ module.exports.autUser = async (req, res, next) => {
     
     }
     
-    
+     
     try {
         const decoded = jwt.verify(token, process.env.JWT_SECRET)
         const user = await UserModel.findById(decoded.id)
