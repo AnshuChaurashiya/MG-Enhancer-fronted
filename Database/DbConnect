@@ -12,4 +12,4 @@ const DBUrl = async () => {
   }
 };
 
-module.exports = DBUrl;
+module.exports = DBUrl; 
