@@ -3,7 +3,7 @@ const UserModel = require("../Models/UserModels");
 const UserService = require("../service/User.Service");
 const {validationResult} = require("express-validator");
 
-
+ // this is the user related code and user auth and dashbord page
 module.exports.registerUser = async (req, res, next) => {
     try {
 
