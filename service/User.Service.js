@@ -1,4 +1,5 @@
 const UserModel = require("../Models/UserModels");
+// this is the user service page 
 
 module.exports.createUser = async (userData) => {
     const {name, email, password} = userData;
