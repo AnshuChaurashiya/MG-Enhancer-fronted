@@ -4,16 +4,15 @@ const {body} = require('express-validator')
 const checkToken = require('../Middleware/UserMiddleware');
 const UserController = require('../controller/UserController')
 
-
- 
-
+// user Auth controller and Api are build 
+// Register New User
 router.post('/register', [
   body('name').isLength({min: 3}).withMessage('Name must be at least 3 characters long'),
   body('email').isEmail().withMessage('Invalid email'),
   body('password').isLength({min: 8}).withMessage('Password must be at least 8 characters long'),
 ] , UserController.registerUser);
 
-
+// Login the user api
 router.post('/login', [
   body('email').isEmail().withMessage('Invalid email'),
   body('password').isLength({min:8}).withMessage('Password must be at least 8 characters long'),
