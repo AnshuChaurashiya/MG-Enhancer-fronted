@@ -5,7 +5,6 @@ const {validationResult} = require("express-validator");
 
  module.exports.registerUser = async (req, res, next) => {
     try {
-
         const errors = validationResult(req);
         if(!errors.isEmpty()){
             return res.status(400).json({
@@ -28,9 +27,7 @@ const {validationResult} = require("express-validator");
             success: true,
             user,
             token
-        })
-        
-        
+        }) 
     } catch (error) {
         return res.status(500).json({
             message: error.message,
@@ -45,7 +42,6 @@ const {validationResult} = require("express-validator");
 
 module.exports.loginUser = async (req, res, next) => {
     try {
-
         const errors = validationResult(req);
         if(!errors.isEmpty()){
             return res.status(400).json({
@@ -65,7 +61,6 @@ module.exports.loginUser = async (req, res, next) => {
             })
         }
 
-
         const token = user.generateAuthToken()
         res.cookie('token', token)
         res.status(200).json({user, token})
@@ -75,9 +70,7 @@ module.exports.loginUser = async (req, res, next) => {
             message: error.message,
             success: false,
             data: null,
-        })
-    }
-}
+        })}}
 
 
 
@@ -103,6 +96,6 @@ module.exports.logoutUser = async (req, res, next) => {
         res.status(200).json({message: "Logged out successfully"})
         
     } catch (error) {
-        
+       
     }
 }
