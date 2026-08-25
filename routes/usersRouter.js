@@ -4,8 +4,7 @@ const {body} = require('express-validator')
 const checkToken = require('../Middleware/UserMiddleware');
 const UserController = require('../controller/UserController')
 
-// user Auth controller and Api are build 
-// Register New User
+ // Register New User
 router.post('/register', [
   body('name').isLength({min: 3}).withMessage('Name must be at least 3 characters long'),
   body('email').isEmail().withMessage('Invalid email'),
