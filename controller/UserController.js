@@ -2,7 +2,7 @@ const { model } = require("mongoose");
 const UserModel = require("../Models/UserModels");
 const UserService = require("../service/User.Service");
 const {validationResult} = require("express-validator");
-
+ 
  module.exports.registerUser = async (req, res, next) => {
     try {
         const errors = validationResult(req);
