@@ -6,7 +6,6 @@ module.exports.autUser = async (req, res, next) => {
     
     if(!token){
         return res.status(401).json({message: "Unauthorized" })
-    
     }
     
      
@@ -14,14 +13,7 @@ module.exports.autUser = async (req, res, next) => {
         const decoded = jwt.verify(token, process.env.JWT_SECRET)
         const user = await UserModel.findById(decoded.id)
         if(!user){
-            return res.status(401).json({message: "Unauthorized" })
-            }
-            req.user = user
-            next()
-        
-    } catch (error) {
-        return res.status(500).json({message: 'Authentication failed'})
-
-        
-    }
+            return res.status(401).json({message: "Unauthorized" })}
+            req.user = user next()
+    } catch (error) { return res.status(500).json({message: 'Authentication failed'} }
 }
