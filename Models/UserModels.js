@@ -25,13 +25,15 @@ const userSchema = new mongoose.Schema({
 
 // ✅ Instance methods
 userSchema.methods.generateAuthToken = function () {
-    const token = jwt.sign({id: this._id}, process.env.JWT_SECRET, {expiresIn: "1d"})
+    const token = jwt.sign({id: this._id}, 
+    process.env.JWT_SECRET, {expiresIn: "1d"})
     return token;
 }
 
 
 userSchema.methods.comparePassword = async function (password) {
-    const isMatch = await bcrypt.compare(password, this.password);
+    const isMatch = await bcrypt.compare(password,
+    this.password);
     return isMatch;
 }
 
