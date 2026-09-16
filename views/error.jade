@@ -1,6 +1,10 @@
-extends layout
+// Error-handling middleware
+app.use((err, req, res, next) => {
+  // Set locals, only providing error details in development
+  res.locals.message = err.message;
+  res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-block content
-  h1= message
-  h2= error.status
-  pre #{error.stack}
+  // Render the error page
+  res.status(err.status || 500);
+  res.render('error');
+});
